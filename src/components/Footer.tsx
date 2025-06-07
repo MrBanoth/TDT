@@ -1,0 +1,68 @@
+
+import { Heart } from 'lucide-react';
+
+const Footer = () => {
+  return (
+    <footer className="bg-charity-dark text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Organization Info */}
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-2 mb-4">
+              <img 
+              src="/tdtlogo.jpg" 
+              alt="Tribal Development Trust Logo"
+              className="h-10 w-auto object-contain"
+            />
+              <h3 className="text-xl font-bold">Tribal Development Trust</h3>
+            </div>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Empowering tribal communities through comprehensive development programs, 
+              healthcare initiatives, and social welfare activities across India.
+            </p>
+            <div className="space-y-2 text-sm text-gray-300">
+              <p><strong>Registration:</strong> NGO Tribal Development Trust</p>
+              <p><strong>Location:</strong> India</p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-gray-300">
+              <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/programmes" className="hover:text-primary transition-colors">Our Programmes</a></li>
+              <li><a href="/events" className="hover:text-primary transition-colors">Events</a></li>
+              <li><a href="/donate" className="hover:text-secondary transition-colors">Donate</a></li>
+            </ul>
+          </div>
+
+          {/* Our Programs */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Our Programs</h4>
+            <ul className="space-y-2 text-gray-300">
+              <li>Children's Programmes</li>
+              <li>Medical Camps</li>
+              <li>Women's Empowerment</li>
+              <li>Blanket Distribution</li>
+              <li>Family Counseling</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p className="text-gray-300 flex items-center justify-center gap-1">
+            Made with <Heart className="h-4 w-4 text-red-500 fill-current" /> for tribal development
+          </p>
+          <p className="text-gray-400 text-sm mt-2">
+            © 2024 Tribal Development Trust. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
