@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -50,6 +51,11 @@ const teamMembers = {
 const ProfilePage = () => {
   const { id } = useParams<{ id: string }>();
   const member = id ? teamMembers[id as keyof typeof teamMembers] : null;
+
+  // Scroll to top when component mounts or id changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!member) {
     return (
