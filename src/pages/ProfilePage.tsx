@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -50,12 +50,30 @@ const teamMembers = {
 
 const ProfilePage = () => {
   const { id } = useParams<{ id: string }>();
+  const [isLoading, setIsLoading] = useState(true);
   const member = id ? teamMembers[id as keyof typeof teamMembers] : null;
 
-  // Scroll to top when component mounts or id changes
+  // Handle scroll and loading state
   useEffect(() => {
+    // Immediately scroll to top before anything renders
     window.scrollTo(0, 0);
+    
+    // Set a small timeout to ensure smooth transition
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 50);
+    
+    return () => clearTimeout(timer);
   }, [id]);
+  
+  // Show loading state briefly to prevent flash of content
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-charity-light">
+        <Navbar />
+      </div>
+    );
+  }
 
   if (!member) {
     return (

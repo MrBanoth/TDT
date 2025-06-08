@@ -84,29 +84,29 @@ const Index = () => {
               <h3 className="text-responsive-md font-bold text-charity-dark">
                 Transforming Lives Together
               </h3>
-              <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6">
                 Our organization works tirelessly to bridge the gap between tribal communities and 
                 modern development while preserving their rich cultural heritage. We believe in 
                 sustainable development that empowers communities from within.
               </p>
-              <div className="space-y-2 sm:space-y-3 md:space-y-4">
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
+              <div className="space-y-3 sm:space-y-4 md:space-y-5">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">Community-centered approach</span>
+                  <span className="text-base sm:text-lg md:text-xl text-gray-700 font-medium">Community-centered approach</span>
                 </div>
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">Sustainable development programs</span>
+                  <span className="text-base sm:text-lg md:text-xl text-gray-700 font-medium">Sustainable development programs</span>
                 </div>
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✓</span>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm">✓</span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">Cultural preservation initiatives</span>
+                  <span className="text-base sm:text-lg md:text-xl text-gray-700 font-medium">Cultural preservation initiatives</span>
                 </div>
               </div>
               <div className="mt-4 sm:mt-6 md:mt-8">

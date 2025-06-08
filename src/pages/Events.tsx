@@ -6,6 +6,35 @@ import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Clock, Users, Heart } from 'lucide-react';
 
 const Events = () => {
+  // Hero Section
+  const heroSection = (
+    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+        <div className="absolute top-0 right-1/4 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-1/2 w-64 h-64 bg-accent rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+          Get Involved
+        </span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-charity-dark mb-6 leading-tight">
+          Upcoming <span className="text-primary">Events</span>
+        </h1>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative">
+            <div className="absolute -left-4 top-1/2 w-1 h-16 bg-primary transform -translate-y-1/2 hidden sm:block"></div>
+            <p className="text-lg sm:text-xl text-gray-700 relative pl-6 sm:pl-8">
+              Join us in our mission to empower tribal communities through our upcoming events, 
+              workshops, and community programs across India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
   const upcomingEvents = [
     {
       title: "Annual Medical Camp",
@@ -91,17 +120,9 @@ const Events = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="py-20 gradient-charity">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Events & Activities
-          </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Join us in our mission to transform tribal communities through various events, 
-            workshops, and development programs throughout the year.
-          </p>
-        </div>
-      </section>
+      {heroSection}
+      
+      {/* Upcoming Events */}
 
       {/* Upcoming Events */}
       <section className="py-20 bg-white">

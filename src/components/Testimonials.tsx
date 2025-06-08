@@ -1,105 +1,92 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Star, Quote, MessageSquare, Share2 } from 'lucide-react';
+import { Star, Quote, MessageSquare, Share2, ArrowRight, Play, Eye, X, ThumbsUp, Bookmark, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+// Import testimonials from data file
+import { testimonials as textTestimonials } from '@/data/testimonials';
 
 // Common card styles
-// Common card styles
-const cardBase = "bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full";
+const cardBase = "bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full min-h-[320px] sm:min-h-[360px] md:min-h-[400px]";
 const cardPadding = "p-4 sm:p-5";
 const cardTitle = "text-base sm:text-lg font-semibold text-gray-900 leading-tight";
 const cardText = "text-sm sm:text-base text-gray-600 leading-relaxed";
 const cardButton = "mt-4 w-full bg-primary hover:bg-primary/90 text-white px-4 py-2.5 rounded-lg text-sm font-medium flex items-center justify-center space-x-2 transition-colors";
 const cardMeta = "text-xs sm:text-sm text-gray-500 flex items-center";
-const cardIcon = "w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white flex-shrink-0";
+const cardIcon = "w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white flex-shrink-0";
 
 const Testimonials = () => {
   const [activeTab, setActiveTab] = useState<'text' | 'social'>('text');
+  const [selectedVideo, setSelectedVideo] = useState<{url: string; title: string} | null>(null);
 
   const videoStories = [
     {
-      id: 1,
+      id: 'education-program',
       title: 'Education Program',
-      thumbnail: '/videos/education-thumb.jpg'
+      description: 'See how our education initiatives are transforming lives in tribal communities',
+      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      duration: '5:42',
+      views: '1.2M',
+      date: '2 weeks ago',
+      category: 'Education'
     },
     {
-      id: 2,
-      title: 'Clean Water',
-      thumbnail: '/videos/water-thumb.jpg'
+      id: 'clean-water',
+      title: 'Clean Water Initiative',
+      description: 'Bringing clean water to remote tribal villages',
+      thumbnail: 'https://img.youtube.com/vi/9xwazD5SyVg/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/9xwazD5SyVg',
+      duration: '3:18',
+      views: '856K',
+      date: '1 month ago',
+      category: 'Health'
     },
     {
-      id: 3,
+      id: 'healthcare-camp',
       title: 'Healthcare Camp',
-      thumbnail: '/videos/healthcare-thumb.jpg'
+      description: 'Providing medical care to underserved tribal communities',
+      thumbnail: 'https://img.youtube.com/vi/7wtfhZwyrcc/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/7wtfhZwyrcc',
+      duration: '8:15',
+      views: '2.1M',
+      date: '3 weeks ago',
+      category: 'Health'
     },
     {
-      id: 4,
+      id: 'school-program',
       title: 'School Program',
-      thumbnail: '/videos/school-thumb.jpg'
+      description: 'Building a better future through education',
+      thumbnail: 'https://img.youtube.com/vi/1Ne1hqOXKKI/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/1Ne1hqOXKKI',
+      duration: '6:52',
+      views: '1.5M',
+      date: '2 months ago',
+      category: 'Education'
     },
     {
-      id: 5,
-      platform: 'youtube',
-      handle: 'Tribal Development',
-      content: 'Documentary: Preserving Tribal Culture and Traditions. Watch now!',
-      views: '45k',
-      comments: '512',
-      time: '1w ago'
+      id: 'cultural-heritage',
+      title: 'Preserving Cultural Heritage',
+      description: 'Documenting and preserving tribal traditions and culture',
+      thumbnail: 'https://img.youtube.com/vi/J---aiyznGQ/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/J---aiyznGQ',
+      duration: '12:45',
+      views: '3.7M',
+      date: '1 month ago',
+      category: 'Culture'
     },
     {
-      id: 6,
-      platform: 'facebook',
-      handle: 'Tribal Development Initiative',
-      content: 'Thanks to your generous donations, we\'ve built 10 new homes for tribal families this month!',
-      likes: '5.2k',
-      comments: '421',
-      shares: '890',
-      time: '1w ago'
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Rahul Meena",
-      role: "Community Leader, Rajasthan",
-      content: "The education program has transformed our village. Our children now have access to quality education and a brighter future.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-    },
-    {
-      name: "Priya Bhil",
-      role: "Beneficiary, Madhya Pradesh",
-      content: "The healthcare initiative saved my daughter's life. We are forever grateful for the support and care we received.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80"
-    },
-    {
-      name: "Arjun Gond",
-      role: "Farmer, Chhattisgarh",
-      content: "The agricultural training has helped me double my crop yield and improve my family's livelihood.",
-      rating: 4,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
-    },
-    {
-      name: "Meena Kumari",
-      role: "Artisan, Odisha",
-      content: "The handicraft training program has given me the skills to create beautiful products and earn a sustainable income.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    },
-    {
-      name: "Vijay Oraon",
-      role: "Youth Leader, Jharkhand",
-      content: "The skill development program has opened up new opportunities for the youth in our community.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-    },
-    {
-      name: "Asha Tribal",
-      role: "Student's Mother",
-      content: "My daughter now goes to school regularly thanks to the scholarship program. She dreams of becoming a doctor.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1034&q=80"
+      id: 'women-empowerment',
+      title: 'Women Empowerment',
+      description: 'Empowering tribal women through skill development',
+      thumbnail: 'https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg',
+      videoUrl: 'https://www.youtube.com/embed/9bZkp7q19f0',
+      duration: '7:23',
+      views: '2.8M',
+      date: '3 weeks ago',
+      category: 'Empowerment'
     }
   ];
 
@@ -171,17 +158,25 @@ const Testimonials = () => {
               }}
             >
               <CarouselContent className="flex items-center">
-                {testimonials.map((testimonial, index) => (
+                {textTestimonials.map((testimonial, index) => (
                   <CarouselItem key={index} className="basis-10/12 sm:basis-1/2 lg:basis-1/3 px-2 pb-4">
                     <div className={`${cardBase} group hover:-translate-y-1`}>
                       <div className={`${cardPadding} flex-1 flex flex-col`}>
-                        <div className="flex items-start mb-4">
-                          <div className={`${cardIcon} bg-primary/10 text-primary mr-3 sm:mr-4`}>
-                            <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <div className="flex flex-col items-center text-center mb-4">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 border-2 border-primary/20">
+                            <img 
+                              src={testimonial.image} 
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = '/placeholder-avatar.png'; // Fallback image
+                              }}
+                            />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                            <p className="text-xs sm:text-sm text-gray-500">{testimonial.role}</p>
+                            <h4 className="font-semibold text-gray-900 text-lg">{testimonial.name}</h4>
+                            <p className="text-sm text-primary font-medium">{testimonial.role}</p>
                           </div>
                         </div>
                         
@@ -200,8 +195,21 @@ const Testimonials = () => {
                               />
                             ))}
                           </div>
-                          <button className="text-xs sm:text-sm text-primary hover:text-primary/80 transition-colors">
-                            Read Full Story →
+                          <button 
+                            className="text-sm text-primary hover:text-primary/80 font-medium flex items-center group bg-transparent border-none p-0 cursor-pointer"
+                            onClick={() => {
+                              // Force scroll to top instantly
+                              window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: 'instant'
+                              });
+                              // Navigate after ensuring scroll position is reset
+                              window.location.href = `/stories/${testimonial.id}`;
+                            }}
+                          >
+                            Read Full Story
+                            <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                           </button>
                         </div>
                       </div>
@@ -217,37 +225,96 @@ const Testimonials = () => {
 
 
           {activeTab === 'social' && (
-            <Carousel
-              className="w-full max-w-6xl mx-auto relative"
-              opts={{
-                align: 'center',
-                loop: true,
-              }}
-            >
-              <CarouselContent className="flex items-center">
-                {videoStories.map((story) => (
-                  <CarouselItem key={story.id} className="basis-10/12 sm:basis-1/2 lg:basis-1/3 px-2 pb-4">
-                    <div className={`${cardBase} group hover:-translate-y-1`}>
-                      <div className="relative pb-[62.5%] bg-gray-100 overflow-hidden">
-                        {/* Video Thumbnail with Play Button and Title */}
-                        <div className="absolute inset-0 bg-gray-200 flex flex-col items-center justify-center p-4 text-center">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/80 flex items-center justify-center group-hover:bg-white/90 transition-colors mb-3">
-                            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                            </svg>
+            <>
+              <Carousel
+                className="w-full max-w-6xl mx-auto relative"
+                opts={{
+                  align: 'center',
+                  loop: true,
+                }}
+              >
+                <CarouselContent className="flex items-center">
+                  {videoStories.map((story) => (
+                    <CarouselItem key={story.id} className="basis-10/12 sm:basis-1/2 lg:basis-1/3 px-2 pb-4">
+                      <div 
+                        className={`${cardBase} group hover:-translate-y-1 cursor-pointer p-0 overflow-hidden`}
+                        onClick={() => setSelectedVideo({ url: story.videoUrl, title: story.title })}
+                      >
+                        <div className="relative pb-[56.25%] bg-gray-100">
+                          <img 
+                            src={story.thumbnail} 
+                            alt={story.title}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity group-hover:bg-black/30">
+                            <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center group-hover:bg-white/90 transition-all transform group-hover:scale-110">
+                              <Play className="w-6 h-6 text-primary ml-1" />
+                            </div>
+                            <span className="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                              {story.duration}
+                            </span>
                           </div>
-                          <h4 className="font-semibold text-gray-900 text-white bg-black/60 px-3 py-1 rounded-full text-sm sm:text-base">
-                            {story.title}
-                          </h4>
                         </div>
                       </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0 sm:left-4" />
+                <CarouselNext className="right-0 sm:right-4" />
+              </Carousel>
+
+              {/* Video Modal */}
+              {selectedVideo && (
+                <div 
+                  className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" 
+                  onClick={() => setSelectedVideo(null)}
+                >
+                  <div 
+                    className="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden" 
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <button 
+                      className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                      onClick={() => setSelectedVideo(null)}
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                    <div className="relative pt-[56.25%] w-full">
+                      <iframe
+                        src={`${selectedVideo.url}?autoplay=1`}
+                        title={selectedVideo.title}
+                        className="absolute inset-0 w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0 sm:left-4" />
-              <CarouselNext className="right-0 sm:right-4" />
-            </Carousel>
+                    <div className="p-4 bg-gray-900 text-white">
+                      <h3 className="text-lg font-medium mb-2">{selectedVideo.title}</h3>
+                      <div className="flex items-center justify-between text-sm text-gray-300">
+                        <div className="flex items-center space-x-4">
+                          <button className="flex items-center hover:text-white">
+                            <ThumbsUp className="w-4 h-4 mr-1" />
+                            Like
+                          </button>
+                          <button className="flex items-center hover:text-white">
+                            <MessageSquare className="w-4 h-4 mr-1" />
+                            Comment
+                          </button>
+                          <button className="flex items-center hover:text-white">
+                            <Share2 className="w-4 h-4 mr-1" />
+                            Share
+                          </button>
+                        </div>
+                        <button className="hover:text-white">
+                          <Bookmark className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

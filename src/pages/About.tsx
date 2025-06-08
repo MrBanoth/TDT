@@ -113,18 +113,26 @@ const About = () => {
     {
       title: "Community First",
       description: "We prioritize the needs and voices of tribal communities in all our initiatives",
+      icon: "👥",
+      color: "primary"
     },
     {
       title: "Cultural Respect",
       description: "Preserving and honoring tribal traditions while promoting development",
+      icon: "🌿",
+      color: "secondary"
     },
     {
       title: "Sustainable Impact",
       description: "Creating long-term solutions that empower communities to thrive independently",
+      icon: "♻️",
+      color: "accent"
     },
     {
       title: "Transparency",
       description: "Maintaining open communication and accountability in all our operations",
+      icon: "🔍",
+      color: "accent"
     },
   ];
 
@@ -154,15 +162,30 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="py-12 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-black mb-4 sm:mb-6">
-            About Our Organization
+      <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+          <div className="absolute top-0 right-1/4 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-1/2 w-64 h-64 bg-accent rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            Who We Are
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-charity-dark mb-6 leading-tight">
+            About Our <span className="text-primary">Organization</span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-800 max-w-3xl mx-auto">
-            Dedicated to empowering tribal communities through comprehensive development programs 
-            and sustainable initiatives across India.
-          </p>
+          <div className="max-w-3xl mx-auto">
+            <div className="relative">
+              <div className="absolute -left-4 top-1/2 w-1 h-16 bg-primary transform -translate-y-1/2 hidden sm:block"></div>
+              <p className="text-lg sm:text-xl text-gray-700 relative pl-6 sm:pl-8">
+                Dedicated to empowering tribal communities through comprehensive development programs 
+                and sustainable initiatives across India.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -172,12 +195,17 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="space-y-8 sm:space-y-12">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-6">Mission & Vision</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold text-charity-dark mb-8 sm:mb-10 text-center lg:text-left">
+                  Our <span className="text-primary">Mission</span> & <span className="text-secondary">Vision</span>
+                </h2>
                 
-                <div className="space-y-6 sm:space-y-8">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-charity-dark mb-3 sm:mb-4">MISSION</h3>
-                    <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
+                <div className="space-y-8 sm:space-y-12">
+                  <div className="bg-charity-light/30 p-6 sm:p-8 rounded-xl border-l-4 border-primary">
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-1 bg-charity-dark mr-3"></div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-charity-dark uppercase tracking-wider">Our Mission</h3>
+                    </div>
+                    <p className="text-base sm:text-lg text-gray-800 leading-relaxed pl-2 sm:pl-4">
                       To provide both tribal and rural communities with excellent 
                       development opportunities within a wide range of educational, 
                       economic and healthcare initiatives as well as other social 
@@ -185,9 +213,12 @@ const About = () => {
                     </p>
                   </div>
                   
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-charity-dark mb-3 sm:mb-4">VISION</h3>
-                    <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
+                  <div className="bg-charity-light/30 p-6 sm:p-8 rounded-xl border-l-4 border-secondary">
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-1 bg-charity-dark mr-3"></div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-charity-dark uppercase tracking-wider">Our Vision</h3>
+                    </div>
+                    <p className="text-base sm:text-lg text-gray-800 leading-relaxed pl-2 sm:pl-4">
                       To assume the role of a leader in the development of tribal and rural 
                       communities through sustainable initiatives that preserve cultural heritage 
                       while promoting modern development opportunities across India.
@@ -280,19 +311,23 @@ const About = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center p-4 sm:p-6 hover:shadow-lg transition-shadow border-0 shadow-md charity-shadow">
-                <CardContent className="pt-4 sm:pt-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 gradient-charity rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <span className="text-white text-lg sm:text-2xl font-bold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-charity-dark mb-2 sm:mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <div 
+                key={index} 
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/20 hover:-translate-y-1 flex flex-col items-center"
+              >
+                <div 
+                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${value.color === 'primary' ? 'bg-primary/10' : value.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'} flex items-center justify-center text-3xl sm:text-4xl mb-4 sm:mb-6`}
+                >
+                  {value.icon}
+                </div>
+                <h3 className={`text-xl sm:text-2xl font-bold text-charity-dark mb-3 sm:mb-4`}>
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-center mb-4 sm:mb-6">
+                  {value.description}
+                </p>
+                <div className={`h-1 w-12 ${value.color === 'primary' ? 'bg-primary' : value.color === 'secondary' ? 'bg-secondary' : 'bg-orange-500'} rounded-full mx-auto transition-all duration-300 group-hover:w-16`}></div>
+              </div>
             ))}
           </div>
         </div>
@@ -321,14 +356,14 @@ const About = () => {
                   to={`/profile/${memberId}`}
                   className="group h-full block"
                 >
-                  <Card className="h-full flex flex-col border-0 shadow-lg charity-shadow hover:shadow-2xl transition-shadow duration-300">
-                    <div className="relative overflow-hidden rounded-t-lg h-48 sm:h-64 flex-shrink-0">
+                  <Card className="h-full flex flex-col border-2 border-charity-light/30 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group/card">
+                    <div className="relative overflow-hidden h-48 sm:h-64 flex-shrink-0">
                       <div className="absolute inset-0 w-full h-full">
                         <div className="absolute inset-0 w-full h-full overflow-hidden">
                           <img 
                             src={trustee.image} 
                             alt={trustee.name}
-                            className="w-full h-[120%] object-cover object-top"
+                            className="w-full h-[120%] object-cover object-top transition-transform duration-700 group-hover/card:scale-105"
                             style={{
                               objectPosition: 'center 20%',
                               ...(trustee.name.includes('LALITHAMMA') || trustee.name.includes('SURESH NAIK') 
@@ -342,20 +377,28 @@ const About = () => {
                           />
                         </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
                     </div>
-                    <CardContent className="p-4 sm:p-6 text-center group-hover:bg-charity-light/20 transition-colors duration-300">
-                      <h3 className="text-lg sm:text-xl font-bold text-charity-dark mb-2">
-                        {trustee.name}
-                      </h3>
-                      <p className="text-primary font-semibold mb-2 sm:mb-3">
-                        {trustee.role}
-                      </p>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3">
-                        {trustee.description}
-                      </p>
-                      <div className="mt-3 text-sm text-primary font-medium">
-                        View Profile →
+                    <CardContent className="p-5 sm:p-6 text-center group-hover/card:bg-charity-light/10 transition-all duration-300 flex flex-col h-full">
+                      <div className="flex-grow">
+                        <h3 className="text-lg sm:text-xl font-bold text-charity-dark mb-2 group-hover/card:text-primary transition-colors">
+                          {trustee.name}
+                        </h3>
+                        <p className="text-primary/90 font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+                          {trustee.role}
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                          {trustee.description}
+                        </p>
+                      </div>
+                      <div className="mt-auto">
+                        <div className="inline-flex items-center text-sm font-medium text-primary group-hover/card:text-secondary transition-colors">
+                          View Profile
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transition-transform group-hover/card:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
