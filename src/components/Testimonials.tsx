@@ -235,16 +235,16 @@ const Testimonials = () => {
               >
                 <CarouselContent className="flex items-center">
                   {videoStories.map((story) => (
-                    <CarouselItem key={story.id} className="basis-10/12 sm:basis-1/2 lg:basis-1/3 px-2 pb-4">
+                    <CarouselItem key={story.id} className="basis-10/12 sm:basis-1/2 lg:basis-1/3 px-2 h-full">
                       <div 
-                        className={`${cardBase} group hover:-translate-y-1 cursor-pointer p-0 overflow-hidden`}
+                        className={`${cardBase} group hover:-translate-y-1 cursor-pointer p-0 overflow-hidden h-full flex flex-col`}
                         onClick={() => setSelectedVideo({ url: story.videoUrl, title: story.title })}
                       >
-                        <div className="relative pb-[56.25%] bg-gray-100">
+                        <div className="relative flex-1 w-full bg-gray-100">
                           <img 
                             src={story.thumbnail} 
                             alt={story.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity group-hover:bg-black/30">
                             <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center group-hover:bg-white/90 transition-all transform group-hover:scale-110">
@@ -254,6 +254,10 @@ const Testimonials = () => {
                               {story.duration}
                             </span>
                           </div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-semibold text-gray-900 text-lg mb-1">{story.title}</h3>
+                          <p className="text-sm text-gray-600 line-clamp-2">{story.description}</p>
                         </div>
                       </div>
                     </CarouselItem>
