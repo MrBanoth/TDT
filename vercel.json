@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "src": "/stories/.*",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/profile/.*",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "status": 200
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
