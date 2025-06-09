@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Users, Heart, Home, Gift, HandHeart, Play, Search, LayoutGrid, BarChart4, ArrowRight } from 'lucide-react';
 
 const Programmes = () => {
@@ -39,7 +40,7 @@ const Programmes = () => {
       title: "Children's Programmes",
       icon: <Users className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />,
       description: "Comprehensive educational support and development programs for tribal children",
-      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video URL
       features: [
         "Educational scholarships and school supplies",
         "Nutritional support and meal programs",
@@ -54,7 +55,7 @@ const Programmes = () => {
       title: "Medical Camps",
       icon: <Heart className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />,
       description: "Free healthcare services and medical assistance for tribal communities",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video URL
       features: [
         "Regular health checkups and screenings",
         "Free medicines and treatments",
@@ -69,7 +70,7 @@ const Programmes = () => {
       title: "Women's Empowerment",
       icon: <Home className="h-8 w-8 sm:h-12 sm:w-12 text-secondary" />,
       description: "Skill training and economic empowerment initiatives for tribal women",
-      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video URL
       features: [
         "Vocational training programs",
         "Self-help group formation",
@@ -84,7 +85,7 @@ const Programmes = () => {
       title: "Blanket Distribution",
       icon: <Gift className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />,
       description: "Essential winter relief and clothing distribution during cold seasons",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video URL
       features: [
         "Winter blanket distribution",
         "Warm clothing for children",
@@ -99,7 +100,7 @@ const Programmes = () => {
       title: "Family Counseling",
       icon: <HandHeart className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />,
       description: "Mental health support and family counseling services for tribal families",
-      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual video URL
       features: [
         "Individual and family counseling",
         "Mental health awareness",
@@ -139,17 +140,15 @@ const Programmes = () => {
             {programmes.map((programme, index) => (
               <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="relative group cursor-pointer overflow-hidden rounded-2xl lg:rounded-3xl shadow-2xl">
-                    <img 
-                      src={programme.image} 
-                      alt={programme.title}
-                      className="w-full h-64 sm:h-96 object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/90 rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
-                        <Play className="w-6 h-6 sm:w-8 sm:h-8 text-primary ml-1" />
-                      </div>
-                    </div>
+                  <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-2xl aspect-video">
+                    <iframe
+                      src={programme.video}
+                      title={programme.title}
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
                   </div>
                 </div>
                 
@@ -218,20 +217,21 @@ const Programmes = () => {
                         </p>
                       </div>
 
-                      <Button 
-                        className={`w-full sm:w-auto transition-all duration-300 transform hover:scale-105 ${
+                      <Link 
+                        to="/programs/gallery"
+                        className={`inline-flex items-center justify-center w-full sm:w-auto transition-all duration-300 transform hover:scale-105 ${
                           programme.title === "Children's Programmes" ? 'bg-blue-600 hover:bg-blue-700' : 
                           programme.title === "Medical Camps" ? 'bg-green-600 hover:bg-green-700' : 
                           programme.title === "Women's Empowerment" ? 'bg-purple-600 hover:bg-purple-700' : 
                           programme.title === "Blanket Distribution" ? 'bg-orange-600 hover:bg-orange-700' : 
                           'bg-teal-600 hover:bg-teal-700' // Default for Family Counseling and others
-                        } text-white font-medium rounded-lg px-6 py-2.5 flex items-center space-x-2`}
+                        } text-white font-medium rounded-lg px-6 py-2.5 space-x-2`}
                       >
                         <span>View Gallery</span>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
-                      </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 </div>
@@ -323,34 +323,39 @@ const Programmes = () => {
           </div>
           
           <div className="mt-16 text-center">
-            <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-medium rounded-full px-8 py-6 text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+            <Link 
+              to="/our-approach" 
+              className="inline-flex items-center bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-medium rounded-full px-6 py-3 text-sm sm:text-base transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md"
+            >
               Learn More About Our Approach
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+              <ArrowRight className="ml-2 h-3.5 w-3.5" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-6">
             Join Our Mission
           </h2>
-          <p className="text-lg sm:text-xl text-gray-800 mb-6 sm:mb-8 max-w-3xl mx-auto font-medium">
+          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             Your support can help us expand these vital programs and reach more communities in need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/donate" className="inline-block">
-              <button className="bg-charity-dark text-white hover:bg-charity-dark/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 w-full sm:w-auto">
-                Support Our Programs
-              </button>
-            </a>
-            <a href="/events" className="inline-block">
-              <button className="border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 w-full sm:w-auto">
-                Upcoming Events
-              </button>
-            </a>
+            <Link 
+              to="/donate" 
+              className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-8 py-3 text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
+              Support Our Programs
+            </Link>
+            <Link 
+              to="/events" 
+              className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
+            >
+              Upcoming Events
+            </Link>
           </div>
         </div>
       </section>

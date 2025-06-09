@@ -13,6 +13,11 @@ import Donate from "./pages/Donate";
 import ProfilePage from "./pages/ProfilePage";
 import StoryDetail from "./pages/StoryDetail";
 import NotFound from "./pages/NotFound";
+import Gallery from "./pages/programs/Gallery";
+import ProgramDetail from "./pages/programs/ProgramDetail";
+import OurApproach from "./pages/OurApproach";
+import EventDetail from "./pages/EventDetail";
+import AllEvents from "./pages/AllEvents";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +37,15 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/programmes" element={<Programmes />} />
+          
+          {/* Program Routes */}
+          <Route path="/programs/gallery" element={<Gallery />} />
+          <Route path="/programs/:id" element={<ProgramDetail />} />
+          <Route path="/our-approach" element={<OurApproach />} />
+          
           <Route path="/events" element={<Events />} />
+          <Route path="/all-events" element={<AllEvents />} />
+          <Route path="/events/:id" element={<EventDetail />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/stories/:id" element={<StoryDetail />} />

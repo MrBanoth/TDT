@@ -3,9 +3,37 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, MapPin, Clock, Users, Heart } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, Heart, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+
+interface Event {
+  id: string;
+  title: string;
+  type: string;
+  date: string;
+  time: string;
+  location: string;
+  participants: string;
+  image: string;
+  description: string;
+  details: string[];
+}
+
+interface PastEvent {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  image: string;
+  participants: string;
+  type: string;
+  impact?: string;
+}
 
 const Events = () => {
+  const navigate = useNavigate();
+  
   // Hero Section
   const heroSection = (
     <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
@@ -35,73 +63,110 @@ const Events = () => {
       </div>
     </section>
   );
-  const upcomingEvents = [
+  const upcomingEvents: Event[] = [
     {
+      id: "1",
       title: "Annual Medical Camp",
       date: "2024-07-15",
       time: "9:00 AM - 5:00 PM",
       location: "Tribal Village, Telangana",
       description: "Free comprehensive health checkups, medicines, and health awareness programs for the tribal community.",
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3",
-      participants: "Expected 200+ participants",
-      type: "Medical Camp"
+      participants: "200+ expected",
+      type: "Medical Camp",
+      details: [
+        "Free health check-ups",
+        "Specialist consultations",
+        "Free medicines distribution",
+        "Health awareness sessions"
+      ]
     },
     {
+      id: "2",
       title: "Women's Empowerment Workshop",
-      date: "2024-07-22",
+      date: "2024-08-10",
       time: "10:00 AM - 4:00 PM",
-      location: "Community Center, Warangal",
-      description: "Skill development workshop focusing on traditional crafts, modern techniques, and entrepreneurship opportunities.",
-      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3",
-      participants: "Limited to 50 women",
-      type: "Workshop"
+      location: "Adilabad District, Telangana",
+      description: "Skill development and entrepreneurship training for tribal women to promote self-reliance.",
+      image: "https://images.unsplash.com/photo-1529154691717-33091991a2c9?ixlib=rb-4.0.3",
+      participants: "50 women",
+      type: "Workshop",
+      details: [
+        "Skill development training",
+        "Entrepreneurship guidance",
+        "Financial literacy",
+        "Success stories sharing"
+      ]
     },
     {
-      title: "Children's Educational Fair",
-      date: "2024-08-05",
-      time: "9:30 AM - 3:00 PM",
-      location: "Government School, Khammam",
-      description: "Educational activities, book distribution, and scholarship announcements for tribal children.",
-      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3",
-      participants: "300+ children expected",
-      type: "Educational"
+      id: "3",
+      title: "Educational Scholarship Distribution",
+      date: "2024-09-05",
+      time: "11:00 AM - 2:00 PM",
+      location: "Khammam, Telangana",
+      description: "Awarding scholarships to meritorious tribal students to support their higher education.",
+      image: "https://images.unsplash.com/photo-1523050853548-5d4093d06a2b?ixlib=rb-4.0.3",
+      participants: "100 students",
+      type: "Educational",
+      details: [
+        "Scholarship distribution ceremony",
+        "Mentorship program launch",
+        "Career guidance session",
+        "Alumni interaction"
+      ]
     },
     {
+      id: "4",
       title: "Blanket Distribution Drive",
+      type: "Relief Program",
       date: "2024-12-15",
-      time: "11:00 AM - 4:00 PM",
+      time: "10:00 AM - 4:00 PM",
       location: "Multiple Villages, Adilabad",
-      description: "Winter relief program providing warm blankets and clothing to tribal families in remote areas.",
+      participants: "500+ families",
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3",
-      participants: "500+ families to benefit",
-      type: "Relief Program"
+      description: "Winter relief program providing warm blankets and clothing to tribal families in remote areas.",
+      details: [
+        "Blanket distribution",
+        "Winter clothing drive",
+        "Elderly care kits",
+        "Children's winter essentials"
+      ]
     }
   ];
 
-  const pastEvents = [
+  const pastEvents: PastEvent[] = [
     {
       title: "Community Health Awareness Program",
       date: "2024-05-20",
-      location: "Tribal Settlement, Karimnagar",
-      description: "Successfully conducted health awareness sessions reaching 150+ families.",
-      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3",
-      impact: "150 families educated on health practices"
+      time: "10:00 AM - 4:00 PM",
+      location: "Tribal Village, Telangana",
+      description: "Awareness sessions on hygiene, nutrition, and preventive healthcare for tribal communities.",
+      image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-4.0.3",
+      participants: "150+ community members",
+      type: "Health Camp",
+      impact: "150+ families educated on health and hygiene practices"
     },
     {
-      title: "Skill Development Training",
-      date: "2024-04-10",
-      location: "Training Center, Nizamabad",
-      description: "Vocational training program for tribal youth in computer skills and digital literacy.",
-      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3",
-      impact: "40 youth trained successfully"
+      title: "Tree Plantation Drive",
+      date: "2024-04-15",
+      time: "8:00 AM - 2:00 PM",
+      location: "Adilabad District, Telangana",
+      description: "Community-led tree plantation initiative to promote environmental sustainability.",
+      image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3",
+      participants: "200+ volunteers",
+      type: "Environment",
+      impact: "500+ saplings planted with community participation"
     },
     {
-      title: "Family Counseling Session",
-      date: "2024-03-15",
-      location: "Community Hall, Mahabubabad",
-      description: "Mental health awareness and family counseling services provided to tribal families.",
-      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3",
-      impact: "60 families received counseling support"
+      title: "Educational Kit Distribution",
+      date: "2024-03-10",
+      time: "11:00 AM - 3:00 PM",
+      location: "Warangal, Telangana",
+      description: "Distribution of school supplies and educational materials to underprivileged tribal children.",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0a?ixlib=rb-4.0.3",
+      participants: "300+ students",
+      type: "Education",
+      impact: "300+ children received educational support"
     }
   ];
 
@@ -125,183 +190,190 @@ const Events = () => {
       {/* Upcoming Events */}
 
       {/* Upcoming Events */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-charity-dark mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-4">
               Upcoming Events
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Be part of our upcoming initiatives and help us make a difference in tribal communities
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
-            {upcomingEvents.map((event, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg overflow-hidden">
-                <div className="relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {upcomingEvents.slice(0, 2).map((event, index) => (
+              <div 
+                key={index} 
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              >
+                <div className="relative h-56 overflow-hidden">
                   <img 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
-                    {event.type}
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/90 text-white backdrop-blur-sm">
+                      {event.type}
+                    </span>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-white mb-1 line-clamp-2">
+                      {event.title}
+                    </h3>
+                    <div className="flex items-center text-white/90 text-sm">
+                      <Calendar className="h-4 w-4 mr-1.5" />
+                      <span>{formatDate(event.date)} • {event.time}</span>
+                    </div>
+                  </div>
                 </div>
                 
-                <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold text-charity-dark mb-4">
-                    {event.title}
-                  </h3>
-                  
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center text-gray-600">
-                      <Calendar className="h-5 w-5 mr-3 text-primary" />
-                      <span className="text-sm">{formatDate(event.date)}</span>
+                <div className="p-6">
+                  <div className="flex items-center text-gray-600 text-sm mb-4 space-x-4">
+                    <div className="flex items-center">
+                      <MapPin className="h-4 w-4 mr-1.5 text-primary" />
+                      <span>{event.location}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-5 w-5 mr-3 text-primary" />
-                      <span className="text-sm">{event.time}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="h-5 w-5 mr-3 text-primary" />
-                      <span className="text-sm">{event.location}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Users className="h-5 w-5 mr-3 text-primary" />
-                      <span className="text-sm">{event.participants}</span>
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 mr-1.5 text-primary" />
+                      <span>{event.participants}</span>
                     </div>
                   </div>
                   
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                     {event.description}
                   </p>
                   
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                  <ul className="space-y-1.5 mb-6">
+                    {event.details.slice(0, 2).map((detail, i) => (
+                      <li key={i} className="flex items-start text-sm text-gray-600">
+                        <span className="text-primary mr-2">•</span>
+                        <span className="line-clamp-1">{detail}</span>
+                      </li>
+                    ))}
+                    {event.details.length > 2 && (
+                      <li className="text-sm text-gray-500">+{event.details.length - 2} more</li>
+                    )}
+                  </ul>
+                  
+                  <Button 
+                    onClick={() => navigate(`/events/${event.id}`)}
+                    className="w-full bg-charity-dark hover:bg-charity-dark/90 text-white rounded-xl py-2.5 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                  >
                     Learn More & Register
+                    <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
+          </div>
+          
+          {/* View All Events Button */}
+          <div className="text-center mt-12">
+            <Link 
+              to="/all-events"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 group/btn"
+            >
+              View All Upcoming Events
+              <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Past Events */}
-      <section className="py-20 bg-charity-light">
+      {/* Recent Impact */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-charity-light/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-charity-dark mb-6">
-              Recent Impact
+          <div className="text-center mb-12 sm:mb-16">
+            <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold text-primary bg-primary/10 rounded-full">
+              Our Impact
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-bold text-charity-dark mb-4">
+              Recent Impact Stories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See the positive impact of our recent events and programs in tribal communities
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover how our initiatives are making a difference in tribal communities across India
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {pastEvents.map((event, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md">
-                <div className="relative overflow-hidden rounded-t-lg">
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col h-full"
+              >
+                <div className="relative h-56 overflow-hidden">
                   <img 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/90 text-charity-dark backdrop-blur-sm">
+                      {event.type}
+                    </span>
+                  </div>
                 </div>
                 
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-charity-dark mb-2">
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center text-xs text-gray-500 mb-3">
+                    <Calendar className="h-3.5 w-3.5 mr-1.5 text-primary" />
+                    <span>{formatDate(event.date)}</span>
+                    <span className="mx-2">•</span>
+                    <MapPin className="h-3.5 w-3.5 mr-1.5 text-primary" />
+                    <span className="truncate">{event.location}</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-charity-dark mb-3 line-clamp-2">
                     {event.title}
                   </h3>
                   
-                  <div className="flex items-center text-gray-500 mb-3">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    <span className="text-sm">{formatDate(event.date)}</span>
-                  </div>
-                  
-                  <div className="flex items-center text-gray-500 mb-4">
-                    <MapPin className="h-4 w-4 mr-2" />
-                    <span className="text-sm">{event.location}</span>
-                  </div>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                     {event.description}
                   </p>
                   
-                  <div className="p-3 bg-accent/10 rounded-lg">
-                    <p className="text-accent font-semibold text-sm">
-                      Impact: {event.impact}
-                    </p>
+                  <div className="mt-auto pt-4 border-t border-gray-100">
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 mb-1">Impact</p>
+                      <p className="text-sm font-semibold text-primary">
+                        {event.impact}
+                      </p>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Volunteer Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-charity-dark mb-6">
-              Become a Volunteer
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Join our dedicated team of volunteers and help us organize impactful events 
-              that transform tribal communities across India.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="w-16 h-16 gradient-charity rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-charity-dark mb-2">Event Support</h3>
-                <p className="text-gray-600">Help organize and manage our various community events</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 gradient-charity rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-charity-dark mb-2">Community Outreach</h3>
-                <p className="text-gray-600">Engage directly with tribal communities and families</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 gradient-charity rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-charity-dark mb-2">Program Planning</h3>
-                <p className="text-gray-600">Assist in planning and coordinating development programs</p>
-              </div>
-            </div>
-            
-            <Button size="lg" className="gradient-charity hover:opacity-90 transition-opacity px-8 py-4">
-              Join as Volunteer
-            </Button>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 gradient-warm">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-primary/5 to-secondary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-6">
             Support Our Events
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             Your donations help us organize more events and reach more communities in need. 
             Every contribution makes a difference.
           </p>
-          <a href="/donate">
-            <Button size="lg" className="bg-white text-charity-dark hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/donate" 
+              className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-8 py-3 text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
               Donate to Support Events
-            </Button>
-          </a>
+            </Link>
+            <Link 
+              to="/events" 
+              className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
+            >
+              View Upcoming Events
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import ProgramsDropdown from './ProgramsDropdown';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,9 +10,33 @@ const Navbar = () => {
   const navItems = [
     { name: 'HOME', path: '/' },
     { name: 'ABOUT US', path: '/about' },
-    { name: 'OUR PROGRAMMES', path: '/programmes' },
+  ];
+
+  const navItemsAfterPrograms = [
     { name: 'EVENTS', path: '/events' },
   ];
+
+  // Close mobile menu when clicking outside or on a link
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-menu-container')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleMobileMenuClose = () => {
+      setIsMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mobileMenuClose', handleMobileMenuClose);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mobileMenuClose', handleMobileMenuClose);
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -36,8 +61,42 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="hidden lg:flex items-baseline space-x-8">
                 {navItems.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
+                        isActive 
+                          ? 'text-primary font-semibold' 
+                          : 'text-gray-700 hover:text-primary hover:font-medium'
+                      }`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+                {/* Programmes with dropdown */}
+                <div className="relative group">
+                  <NavLink
+                    to="/programmes"
+                    className={({ isActive }) =>
+                      `px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 flex items-center ${
+                        isActive 
+                          ? 'text-primary font-semibold' 
+                          : 'text-gray-700 hover:text-primary hover:font-medium'
+                      }`
+                    }
+                  >
+                    OUR PROGRAMMES
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavLink>
+                  <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <ProgramsDropdown />
+                  </div>
+                </div>
+                {navItemsAfterPrograms.map((item) => (
                   <NavLink
                     key={item.name}
                     to={item.path}
@@ -115,7 +174,7 @@ const Navbar = () => {
               </div>
               
               {/* Navigation Links */}
-              <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1">
+              <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1 mobile-menu-container">
                 {navItems.map((item, index) => (
                   <NavLink
                     key={item.name}
@@ -141,10 +200,52 @@ const Navbar = () => {
                   </NavLink>
                 ))}
                 
+                {/* Mobile Programs Dropdown - Only show the dropdown, not the separate link */}
+                <div className="lg:hidden">
+                  <div 
+                    className="w-full"
+                    style={{
+                      transitionDelay: isMenuOpen ? `${navItems.length * 50}ms` : '0ms',
+                      transform: isMenuOpen ? 'translateX(0)' : 'translateX(20px)',
+                      opacity: isMenuOpen ? 1 : 0,
+                      transitionProperty: 'opacity, transform',
+                      transitionDuration: '0.3s',
+                      transitionTimingFunction: 'ease-in-out'
+                    }}
+                  >
+                    <ProgramsDropdown />
+                  </div>
+                </div>
+                
+                {navItemsAfterPrograms.map((item, index) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `block px-4 py-3 text-base font-medium tracking-wide rounded-lg transition-colors duration-200 ${
+                        isActive 
+                          ? 'bg-primary/10 text-primary font-semibold' 
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-primary hover:font-medium'
+                      }`
+                    }
+                    onClick={() => setIsMenuOpen(false)}
+                    style={{
+                      transitionDelay: isMenuOpen ? `${(navItems.length + index + 1) * 50}ms` : '0ms',
+                      transform: isMenuOpen ? 'translateX(0)' : 'translateX(20px)',
+                      opacity: isMenuOpen ? 1 : 0,
+                      transitionProperty: 'opacity, transform',
+                      transitionDuration: '0.3s',
+                      transitionTimingFunction: 'ease-in-out'
+                    }}
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+                
                 <div 
                   className="mt-6 px-4"
                   style={{
-                    transitionDelay: isMenuOpen ? `${navItems.length * 50}ms` : '0ms',
+                    transitionDelay: isMenuOpen ? `${(navItems.length + navItemsAfterPrograms.length + 1) * 50}ms` : '0ms',
                     transform: isMenuOpen ? 'translateX(0)' : 'translateX(20px)',
                     opacity: isMenuOpen ? 1 : 0,
                     transitionProperty: 'opacity, transform',
