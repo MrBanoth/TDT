@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Disable smooth scrolling globally */
+html, body {
+  scroll-behavior: auto !important;
+  scroll-snap-type: none !important;
+  overscroll-behavior: none !important;
+}
+
+* {
+  scroll-behavior: auto !important;
+}
+
 /* Remove default focus styles but keep them for keyboard navigation */
 *:focus:not(:focus-visible) {
   outline: none;
