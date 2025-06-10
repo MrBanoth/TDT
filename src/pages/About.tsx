@@ -162,7 +162,7 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+      <section className="relative pt-8 sm:pt-16 pb-16 sm:pb-24 bg-white overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
@@ -171,11 +171,8 @@ const About = () => {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-            Who We Are
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-charity-dark mb-6 leading-tight">
-            About Our <span className="text-primary">Organization</span>
+<h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-normal mb-4 sm:mb-6 leading-tight font-serif text-charity-dark">
+            About <span className="text-primary">Us</span>
           </h1>
           <div className="max-w-3xl mx-auto">
             <div className="relative">
@@ -195,7 +192,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="space-y-8 sm:space-y-12">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-charity-dark mb-8 sm:mb-10 text-center lg:text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-8 sm:mb-10 text-center lg:text-left">
                   Our <span className="text-primary">Mission</span> & <span className="text-secondary">Vision</span>
                 </h2>
                 
@@ -266,7 +263,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-charity-dark mb-4 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-4 sm:mb-6">
                 Our Story
               </h2>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">

@@ -36,7 +36,7 @@ const Events = () => {
   
   // Hero Section
   const heroSection = (
-    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="relative pt-8 sm:pt-16 pb-16 sm:pb-24 bg-white overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
@@ -45,10 +45,7 @@ const Events = () => {
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-          Get Involved
-        </span>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-charity-dark mb-6 leading-tight">
+        <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-normal mb-4 sm:mb-6 leading-tight font-serif text-charity-dark">
           Upcoming <span className="text-primary">Events</span>
         </h1>
         <div className="max-w-3xl mx-auto">
@@ -190,17 +187,8 @@ const Events = () => {
       {/* Upcoming Events */}
 
       {/* Upcoming Events */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="pt-0 pb-12 sm:pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-4">
-              Upcoming Events
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Be part of our upcoming initiatives and help us make a difference in tribal communities
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {upcomingEvents.slice(0, 2).map((event, index) => (
               <div 
@@ -260,10 +248,10 @@ const Events = () => {
                   
                   <Button 
                     onClick={() => navigate(`/events/${event.id}`)}
-                    className="w-full bg-charity-dark hover:bg-charity-dark/90 text-white rounded-xl py-2.5 text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    className="w-full bg-charity-dark hover:bg-charity-dark/90 text-white rounded-xl py-2 text-xs font-medium transition-all duration-300 flex items-center justify-center gap-1.5 group/btn h-9"
                   >
                     Learn More & Register
-                    <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" />
                   </Button>
                 </div>
               </div>
@@ -271,10 +259,10 @@ const Events = () => {
           </div>
           
           {/* View All Events Button */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link 
               to="/all-events"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 group/btn"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 rounded-full shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 group/btn h-10"
             >
               View All Upcoming Events
               <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
@@ -284,13 +272,10 @@ const Events = () => {
       </section>
 
       {/* Recent Impact */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-charity-light/30">
+      <section className="pt-12 sm:pt-16 pb-16 sm:pb-20 bg-gradient-to-b from-white to-charity-light/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold text-primary bg-primary/10 rounded-full">
-              Our Impact
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-bold text-charity-dark mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-6">
               Recent Impact Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -363,13 +348,13 @@ const Events = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               to="/donate" 
-              className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-8 py-3 text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-6 py-2 text-sm font-medium rounded-full shadow hover:shadow-md transform hover:scale-105 transition-all duration-300 h-10"
             >
               Donate to Support Events
             </Link>
             <Link 
               to="/events" 
-              className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
+              className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 h-10"
             >
               View Upcoming Events
             </Link>

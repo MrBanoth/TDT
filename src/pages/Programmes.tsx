@@ -8,7 +8,7 @@ import { Users, Heart, Home, Gift, HandHeart, Play, Search, LayoutGrid, BarChart
 const Programmes = () => {
   // Hero Section
   const heroSection = (
-    <section className="relative py-16 sm:py-24 bg-white overflow-hidden">
+    <section className="relative pt-8 sm:pt-16 pb-16 sm:pb-24 bg-white overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
@@ -17,10 +17,7 @@ const Programmes = () => {
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-          Our Initiatives
-        </span>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-charity-dark mb-6 leading-tight">
+        <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-normal mb-4 sm:mb-6 leading-tight font-serif text-charity-dark">
           Our <span className="text-primary">Programmes</span>
         </h1>
         <div className="max-w-3xl mx-auto">
@@ -122,18 +119,9 @@ const Programmes = () => {
       
       {/* Programs Overview */}
 
-      {/* Programs Overview */}
-      <section className="pb-12 sm:pb-20 bg-white">
+      {/* Programs Grid Section */}
+      <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-6">
-              Transforming Lives Through Action
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Our comprehensive programs address the multifaceted challenges faced by tribal communities, 
-              from healthcare and education to economic empowerment and social welfare.
-            </p>
-          </div>
 
           {/* Programs Grid */}
           <div className="space-y-12 sm:space-y-20">

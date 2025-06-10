@@ -65,9 +65,11 @@ const HeroSection = () => {
                 </div>
               </div>
               <div className="flex justify-center">
-                <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-normal font-serif text-base sm:text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02] tracking-wide w-full max-w-[180px]">
-                  Join Now
-                </Button>
+                <NavLink to="/all-events" className="w-full flex justify-center">
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-normal font-serif text-base sm:text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02] tracking-wide w-full max-w-[180px]">
+                    Join Now
+                  </Button>
+                </NavLink>
               </div>
             </div>
 
@@ -82,9 +84,11 @@ const HeroSection = () => {
                 </div>
               </div>
               <div className="flex justify-center">
-                <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-normal font-serif text-base sm:text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02] tracking-wide w-full max-w-[180px]">
-                  Donate Now
-                </Button>
+                <NavLink to="/donate" className="w-full flex justify-center">
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-normal font-serif text-base sm:text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02] tracking-wide w-full max-w-[180px]">
+                    Donate Now
+                  </Button>
+                </NavLink>
               </div>
             </div>
           </div>

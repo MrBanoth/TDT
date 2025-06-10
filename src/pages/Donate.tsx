@@ -288,7 +288,7 @@ const Donate = () => {
             <div>
               <Card className="p-8 border-0 rounded-3xl overflow-hidden">
                 <CardContent className="p-0">
-                  <h3 className="text-3xl font-bold text-charity-dark mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-charity-dark mb-6">
                     How Pickup Works
                   </h3>
                   <div className="space-y-4">
