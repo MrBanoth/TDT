@@ -53,7 +53,7 @@ const Testimonials = () => {
       id: 3,
       platform: 'facebook',
       handle: 'Tribal Development Trust',
-      content: 'Our medical camp reached 500+ people this week. Read more about our healthcare initiatives on our website.',
+      content: 'Our medical camp reached 500+ people this week. Read more about our healthcare programs on our website.',
       likes: '856',
       shares: '124',
       time: '3d ago'

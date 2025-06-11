@@ -61,7 +61,7 @@ const EventDetail = () => {
         
         {/* Hero Section */}
         <section className="relative">
-          <div className="h-64 sm:h-80 md:h-96 w-full overflow-hidden">
+          <div className="h-56 sm:h-72 md:h-96 w-full overflow-hidden">
             <img 
               src={event.image} 
               alt={event.title}
@@ -69,65 +69,42 @@ const EventDetail = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charity-dark/90 via-charity-dark/30 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
-                <div className="inline-flex items-center mb-2 sm:mb-3">
-                  <span className="bg-primary/20 text-primary text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
-                    {event.type}
-                  </span>
-                </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 md:pb-8 pt-4 sm:pt-6">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                   {event.title}
                 </h1>
-                <div className="grid grid-cols-1 xs:grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4 md:gap-6 text-white/90 text-sm sm:text-base">
-                  <div className="flex items-center">
-                    <Calendar className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                    <span className="truncate">{formatDate(event.date)}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                    <span className="truncate">{event.location}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 flex-shrink-0" />
-                    <span>{event.participants}</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Event Content */}
-        <section className="py-12 bg-white">
+        <section className="py-8 sm:py-10 md:py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
               <div className="lg:col-span-2">
                 <div className="prose max-w-none">
-                  <h2 className="text-2xl font-bold text-charity-dark mb-6">About This Event</h2>
-                  <p className="text-gray-700 mb-6">{event.about}</p>
+                  <h2 className="text-xl sm:text-2xl font-bold text-charity-dark mb-4 sm:mb-6">About This Event</h2>
+                  <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">{event.about}</p>
                   
-                  <h3 className="text-xl font-semibold text-charity-dark mt-8 mb-4">Event Highlights</h3>
-                  <ul className="space-y-3 mb-8">
+                  <h3 className="text-lg sm:text-xl font-semibold text-charity-dark mt-6 sm:mt-8 mb-3 sm:mb-4">Event Highlights</h3>
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {event.details.map((detail, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        <span className="text-gray-700">{detail}</span>
+                        <span className="text-primary mr-2 mt-1">•</span>
+                        <span className="text-gray-700 text-sm sm:text-base">{detail}</span>
                       </li>
                     ))}
                   </ul>
                   
-                  <h3 className="text-xl font-semibold text-charity-dark mt-8 mb-4">Detailed Description</h3>
-                  <p className="text-gray-700 mb-6">{event.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-charity-dark mt-6 sm:mt-8 mb-3 sm:mb-4">Detailed Description</h3>
+                  <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-6">{event.description}</p>
                   
-                  <div className="bg-charity-light/30 p-6 rounded-xl border-l-4 border-primary mt-8">
-                    <h3 className="text-xl font-semibold text-charity-dark mb-3">Additional Information</h3>
-                    <p className="text-gray-700 mb-4">For more details about the event, please contact our event coordinator:</p>
-                    <p className="text-gray-700">Email: events@tribaltrust.org</p>
-                    <p className="text-gray-700">Phone: +91 98765 43210</p>
+                  <div className="bg-charity-light/30 p-4 sm:p-6 rounded-xl border-l-4 border-primary mt-6 sm:mt-8">
+                    <h3 className="text-lg sm:text-xl font-semibold text-charity-dark mb-2 sm:mb-3">Additional Information</h3>
+                    <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4">For more details about the event, please contact our event coordinator:</p>
+                    <p className="text-gray-700 text-sm sm:text-base">Email: events@tribaltrust.org</p>
+                    <p className="text-gray-700 text-sm sm:text-base">Phone: +91 98765 43210</p>
                   </div>
                 </div>
               </div>
@@ -155,7 +132,7 @@ const EventDetail = () => {
                       </div>
                     </div>
                     
-                    <Button className="w-full bg-charity-dark hover:bg-charity-dark/90 text-white py-6 text-lg font-semibold rounded-xl">
+                    <Button className="w-full bg-charity-dark hover:bg-charity-dark/95 text-white font-medium font-sans py-3 sm:py-3.5 text-sm sm:text-[15px] hover:shadow-md hover:scale-[1.02] transition-all duration-200 tracking-wide rounded-xl">
                       Register Now
                     </Button>
                     
@@ -191,16 +168,16 @@ const EventDetail = () => {
               Consider making a donation to support our ongoing efforts in tribal community development. 
               Your contribution helps us organize more events and reach more communities in need.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center w-full px-4 sm:px-0">
               <Link 
                 to="/donate" 
-                className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-8 py-3 text-base font-semibold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="flex items-center justify-center w-full max-w-[200px] sm:max-w-[220px] bg-charity-dark hover:bg-charity-dark/95 text-white font-medium font-sans px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-[15px] hover:shadow-md hover:scale-[1.02] transition-all duration-200 tracking-wide whitespace-nowrap"
               >
                 Donate Now
               </Link>
               <Link 
                 to="/events" 
-                className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-8 py-3 text-base font-semibold rounded-full transition-all duration-300"
+                className="flex items-center justify-center w-full max-w-[200px] sm:max-w-[220px] bg-white border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white font-medium font-sans px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-[15px] hover:shadow-md hover:scale-[1.02] transition-all duration-200 tracking-wide whitespace-nowrap"
               >
                 View Other Events
               </Link>

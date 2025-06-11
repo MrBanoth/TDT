@@ -25,7 +25,7 @@ const Testimonials = () => {
     {
       id: 'education-program',
       title: 'Education Program',
-      description: 'See how our education initiatives are transforming lives in tribal communities',
+      description: 'See how our education programs are transforming lives in tribal communities',
       thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       duration: '5:42',

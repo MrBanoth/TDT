@@ -16,11 +16,11 @@ const programs = [
   },
   {
     id: 'medical',
-    title: 'Medical Camps',
+    title: 'Health Camps',
     color: 'green',
     media: [
-      { type: 'image', url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3', alt: 'Medical camp' },
-      { type: 'video', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', title: 'Medical Camp Video' },
+      { type: 'image', url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3', alt: 'Health camp' },
+      { type: 'video', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', title: 'Health Camp Video' },
     ]
   },
   // Add more programs as needed
@@ -50,7 +50,7 @@ const Gallery = () => {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">Our Programs Gallery</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore the impact of our programs through photos and videos from our initiatives.
+              Explore the impact of our programs through photos and videos from our activities.
             </p>
           </div>
 

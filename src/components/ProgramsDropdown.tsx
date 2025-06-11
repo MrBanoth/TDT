@@ -9,9 +9,9 @@ const ProgramsDropdown = () => {
 
   const programs = [
     { name: "Children's Programmes", path: "/programs/children" },
-    { name: "Medical Camps", path: "/programs/medical" },
+    { name: "Health Camps", path: "/programs/medical" },
     { name: "Women's Empowerment", path: "/programs/women" },
-    { name: "Blanket Distribution", path: "/programs/blanket" },
+    { name: "Helping the Poor", path: "/programs/helping-poor" },
     { name: "Family Counseling", path: "/programs/counseling" },
   ];
 

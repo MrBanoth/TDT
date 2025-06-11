@@ -26,25 +26,25 @@ const teamMembers = {
     details: [
       '15+ years of experience in women empowerment',
       'Specializes in education and skill development',
-      'Leads multiple self-help group initiatives',
+      'Leads multiple self-help group programs',
       'Advocate for tribal women\'s rights'
     ],
     quote: 'Education is the most powerful tool to break the cycle of poverty.'
   },
   'R-SURESH-NAIK': {
     name: 'R. SURESH NAIK',
-    role: 'Trustee & Agricultural Development Head',
+    role: 'Trustee & Community Mobilizer',
     image: '/aboutuspage/TRUST-MEMBER.jpg',
-    description: 'A distinguished development professional with over 15 years of experience in sustainable agriculture and rural development. Mr. Suresh Naik has been instrumental in transforming agricultural practices in tribal areas through innovative and sustainable methods. His expertise in water conservation and organic farming has significantly improved crop yields and livelihoods of tribal farmers across the region.',
+    description: 'A dedicated social worker with 6 years of experience in community mobilization and tribal development. Suresh Naik has been instrumental in organizing and mobilizing communities to participate in Tribal Development Trust\'s initiatives. His ability to connect with people and understand their needs has helped bridge the gap between the organization and tribal communities.',
     details: [
-      'Pioneered sustainable agriculture initiatives benefiting 5,000+ tribal farmers',
-      'Led the implementation of water conservation projects across 100+ villages',
-      'Established 25+ Farmer Producer Organizations (FPOs) to empower tribal farmers',
-      'Conducted 200+ training programs on organic farming and soil health management',
-      'Recipient of the \'Krishibhushan\' Award for outstanding contribution to agriculture',
-      'Developed community-based seed banks preserving 50+ indigenous crop varieties'
+      '6+ years of experience in community mobilization and social work',
+      'Successfully organized and led awareness campaigns in 50+ tribal villages',
+      'Mobilized thousands of community members to participate in development programs',
+      'Played a key role in establishing self-help groups and community-based organizations',
+      'Facilitated training programs on health, education, and livelihood opportunities',
+      'Helped implement various Tribal Development Trust initiatives at the grassroots level'
     ],
-    quote: 'Empowering tribal farmers with sustainable agricultural practices is not just about increasing yields, but about preserving our heritage and ensuring food security for future generations.'
+    quote: 'True development happens when we work together as a community. My goal is to help people understand their potential and work collectively towards a better future through the initiatives of Tribal Development Trust.'
   }
 };
 

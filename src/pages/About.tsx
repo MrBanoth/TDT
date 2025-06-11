@@ -89,21 +89,21 @@ const About = () => {
     {
       name: "BANOTH SRINIVAS NAIK",
       role: "Founder & President",
-      description: "Visionary leader dedicated to tribal development and community empowerment",
+      description: "A visionary social worker and passionate advocate for tribal rights, Srinivas Naik has dedicated his life to uplifting tribal communities. His hands-on approach and deep understanding of tribal challenges have been instrumental in shaping the Trust's impactful initiatives.",
       image: "/aboutuspage/FOUNDER.jpg",
       detailImage: "/aboutuspage/FOUNDER.jpg"
     },
     {
       name: "BANOTH LALITHAMMA",
-      role: "Trustee",
-      description: "Passionate advocate for women's empowerment and children's welfare",
+      role: "Trustee & Women's Welfare Head",
+      description: "Leading our women's empowerment initiatives, Lalithamma works tirelessly to create opportunities for tribal women through skill development and education programs.",
       image: "/aboutuspage/TRUSTEE.jpg",
       detailImage: "/aboutuspage/TRUSTEE.jpg"
     },
     {
       name: "R. SURESH NAIK",
-      role: "Trustee",
-      description: "Experienced administrator focusing on sustainable development initiatives",
+      role: "Trustee & Program Director",
+      description: "With expertise in community development, Suresh oversees the implementation of our various programs, ensuring they effectively address the needs of tribal communities.",
       image: "/aboutuspage/TRUST-MEMBER.jpg",
       detailImage: "/aboutuspage/TRUST-MEMBER.jpg"
     },
@@ -112,7 +112,7 @@ const About = () => {
   const values = [
     {
       title: "Community First",
-      description: "We prioritize the needs and voices of tribal communities in all our initiatives",
+      description: "We prioritize the needs and voices of tribal communities in all our programs",
       icon: "👥",
       color: "primary"
     },
@@ -152,7 +152,7 @@ const About = () => {
     { 
       number: `${animatedStats.programs} programs`, 
       label: "offering", 
-      description: "comprehensive initiatives",
+      description: "comprehensive programs",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
     },
   ];
@@ -179,7 +179,7 @@ const About = () => {
               <div className="absolute -left-4 top-1/2 w-1 h-16 bg-primary transform -translate-y-1/2 hidden sm:block"></div>
               <p className="text-lg sm:text-xl text-gray-700 relative pl-6 sm:pl-8">
                 Dedicated to empowering tribal communities through comprehensive development programs 
-                and sustainable initiatives across India.
+                and sustainable programs across India.
               </p>
             </div>
           </div>
@@ -205,7 +205,7 @@ const About = () => {
                     <p className="text-base sm:text-lg text-gray-800 leading-relaxed pl-2 sm:pl-4">
                       To provide both tribal and rural communities with excellent 
                       development opportunities within a wide range of educational, 
-                      economic and healthcare initiatives as well as other social 
+                      economic and healthcare programs as well as other social 
                       programmes at the grassroots, community and regional levels.
                     </p>
                   </div>
@@ -217,7 +217,7 @@ const About = () => {
                     </div>
                     <p className="text-base sm:text-lg text-gray-800 leading-relaxed pl-2 sm:pl-4">
                       To assume the role of a leader in the development of tribal and rural 
-                      communities through sustainable initiatives that preserve cultural heritage 
+                      communities through sustainable projects that preserve cultural heritage 
                       while promoting modern development opportunities across India.
                     </p>
                   </div>
@@ -264,31 +264,43 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-charity-dark mb-4 sm:mb-6">
-                Our Story
+                Our Humble Beginnings
               </h2>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                Tribal Development Trust was founded with a simple yet powerful vision: 
-                to create meaningful change in the lives of tribal communities across India. 
-                Our journey began when our founders witnessed firsthand the challenges faced 
-                by tribal populations in accessing basic healthcare, education, and economic opportunities.
+                The Tribal Development Trust was born in 2015 from the vision of B. Srinivas Naik, who was deeply moved by the struggles of tribal communities. Witnessing the harsh realities of tribal life - lack of education, healthcare, and economic opportunities - he was inspired to make a difference. Srinivas noticed how many families were trapped in cycles of poverty, often falling prey to harmful habits due to limited awareness and opportunities.
               </p>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                What started as a small initiative to provide medical camps in remote tribal areas 
-                has grown into a comprehensive organization addressing multiple facets of tribal development. 
-                Today, we work across various states, implementing programs that have touched the lives 
-                of thousands of families.
+                Starting in 2016, Srinivas began with small but impactful steps, establishing evening tutoring centers in tribal communities. Despite facing numerous personal challenges, his determination to uplift these communities never wavered. He dedicated himself to understanding their needs, conducting extensive research, and developing programs that would bring about real, sustainable change.
+              </p>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
+                What began with basic education initiatives soon expanded to include health camps, women's empowerment programs, and community development projects. Each program was designed with a deep respect for tribal culture and traditions, ensuring that development complemented rather than disrupted their way of life.
               </p>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                Our approach is rooted in respect for tribal culture and traditions, ensuring that 
-                development initiatives enhance rather than replace the rich heritage of these communities.
+                Today, Tribal Development Trust has grown into a beacon of hope, transforming countless lives across tribal communities. Under Srinivas's visionary leadership, we look forward to expanding our impact through his ambitious plans that include child adoption programs for underprivileged children, comprehensive elderly care services, dedicated widow support programs, and sustainable village development projects that will ensure long-term self-reliance for tribal communities.
               </p>
             </div>
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3" 
-                alt="Our story" 
-                className="rounded-2xl shadow-2xl w-full h-64 sm:h-96 object-cover"
-              />
+            <div className="space-y-6">
+              <Link to="/profile/BANOTH-SRINIVAS-NAIK" className="block relative w-full h-80 sm:h-[32rem] overflow-hidden rounded-2xl shadow-2xl group">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end pb-6 justify-center">
+                  <span className="text-white text-base font-medium bg-primary/90 hover:bg-primary px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    View Full Profile →
+                  </span>
+                </div>
+                <img 
+                  src="/aboutuspage/FOUNDER.jpg" 
+                  alt="B. Srinivas Naik - Founder" 
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+              </Link>
+              <div className="bg-white p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-bold text-charity-dark mb-2">B. Srinivas Naik</h3>
+                <p className="text-primary font-medium mb-4 text-sm">Founder & President</p>
+                <div className="border-l-4 border-primary pl-4">
+                  <p className="text-gray-700 text-base sm:text-lg leading-relaxed italic">
+                    "My vision is to see every tribal individual empowered with education, healthcare, and opportunities to build a better future while preserving their rich cultural heritage."
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

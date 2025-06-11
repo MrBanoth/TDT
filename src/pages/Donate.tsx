@@ -11,7 +11,7 @@ const Donate = () => {
     {
       title: "Financial Donations",
       icon: <DollarSign className="h-8 w-8 text-blue-600" />,
-      description: "Monetary contributions that help fund our various programs and initiatives",
+      description: "Monetary contributions that help fund our various programs and services",
       gradient: "bg-gradient-to-br from-blue-50 to-blue-100 border-b-4 border-blue-200",
       options: [
         "Monthly recurring donations",
@@ -19,7 +19,7 @@ const Donate = () => {
         "Program-specific funding",
         "Emergency relief fund",
         "Educational scholarships",
-        "Medical camp support"
+        "Health camp support"
       ],
       impact: "₹1000 can provide medical care for 5 families",
       action: "Donate Money"

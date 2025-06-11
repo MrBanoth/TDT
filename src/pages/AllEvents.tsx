@@ -30,14 +30,14 @@ const AllEvents = () => {
   const upcomingEvents: Event[] = [
     {
       id: "1",
-      title: "Annual Medical Camp",
+      title: "Annual Health Camp",
       date: "2024-07-15",
       time: "9:00 AM - 5:00 PM",
       location: "Tribal Village, Telangana",
       description: "Free comprehensive health checkups, medicines, and health awareness programs for the tribal community.",
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3",
       participants: "200+ expected",
-      type: "Medical Camp",
+      type: "Health Camp",
       details: [
         "Free health check-ups",
         "Specialist consultations",
@@ -81,7 +81,7 @@ const AllEvents = () => {
     },
     {
       id: "4",
-      title: "Blanket Distribution Drive",
+      title: "Helping the Poor Initiative",
       type: "Relief Program",
       date: "2024-12-15",
       time: "10:00 AM - 4:00 PM",
@@ -90,7 +90,7 @@ const AllEvents = () => {
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3",
       description: "Winter relief program providing warm blankets and clothing to tribal families in remote areas.",
       details: [
-        "Blanket distribution",
+        "Essential aid distribution",
         "Winter clothing drive",
         "Elderly care kits",
         "Children's winter essentials"

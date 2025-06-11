@@ -26,19 +26,19 @@ const Index = () => {
   const programs = [
     {
       title: "Children's Programmes",
-      description: "Educational support, nutrition programs, and skill development for tribal children",
+      description: "Educational support (tutoring center), nutrition programs, and skill development for tribal children",
       icon: <Users className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />,
       image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3",
     },
     {
-      title: "Medical Camps",
+      title: "Health Camps",
       description: "Free healthcare services, health checkups, and medical assistance for tribal communities",
       icon: <Heart className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary" />,
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3",
     },
     {
       title: "Women's Empowerment",
-      description: "Skill training, self-help groups, and economic empowerment initiatives for tribal women",
+      description: "Skill training, self-help groups, and economic empowerment programs for tribal women",
       icon: <Home className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-secondary" />,
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3",
     },
@@ -103,7 +103,7 @@ const Index = () => {
                   <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">Cultural preservation initiatives</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">Cultural preservation programs</span>
                 </div>
               </div>
               <div className="mt-4 sm:mt-6 md:mt-8">
@@ -126,7 +126,7 @@ const Index = () => {
               Our Key Programs
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive development initiatives designed to address the core needs 
+              Comprehensive development programs designed to address the core needs 
               of tribal communities and create lasting positive impact.
             </p>
           </div>

@@ -49,9 +49,9 @@ const Events = () => {
           Upcoming <span className="text-primary">Events</span>
         </h1>
         <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            <div className="absolute -left-4 top-1/2 w-1 h-16 bg-primary transform -translate-y-1/2 hidden sm:block"></div>
-            <p className="text-lg sm:text-xl text-gray-700 relative pl-6 sm:pl-8">
+          <div className="relative text-center sm:text-left">
+            <div className="hidden sm:block absolute -left-4 top-1/2 w-1 h-16 bg-primary transform -translate-y-1/2"></div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 sm:pl-8">
               Join us in our mission to empower tribal communities through our upcoming events, 
               workshops, and community programs across India.
             </p>
@@ -63,14 +63,14 @@ const Events = () => {
   const upcomingEvents: Event[] = [
     {
       id: "1",
-      title: "Annual Medical Camp",
+      title: "Annual Health Camp",
       date: "2024-07-15",
       time: "9:00 AM - 5:00 PM",
       location: "Tribal Village, Telangana",
-      description: "Free comprehensive health checkups, medicines, and health awareness programs for the tribal community.",
+      description: "Free comprehensive health checkups, medicines, and health awareness programs for the tribal.",
       image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3",
       participants: "200+ expected",
-      type: "Medical Camp",
+      type: "Health Camp",
       details: [
         "Free health check-ups",
         "Specialist consultations",
@@ -114,7 +114,7 @@ const Events = () => {
     },
     {
       id: "4",
-      title: "Blanket Distribution Drive",
+      title: "Helping the Poor Initiative",
       type: "Relief Program",
       date: "2024-12-15",
       time: "10:00 AM - 4:00 PM",
@@ -123,7 +123,7 @@ const Events = () => {
       image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3",
       description: "Winter relief program providing warm blankets and clothing to tribal families in remote areas.",
       details: [
-        "Blanket distribution",
+        "Essential aid distribution",
         "Winter clothing drive",
         "Elderly care kits",
         "Children's winter essentials"
@@ -189,11 +189,11 @@ const Events = () => {
       {/* Upcoming Events */}
       <section className="pt-0 pb-12 sm:pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {upcomingEvents.slice(0, 2).map((event, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {upcomingEvents.slice(0, 3).map((event, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-primary/20 flex flex-col h-full"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
@@ -279,7 +279,7 @@ const Events = () => {
               Recent Impact Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover how our initiatives are making a difference in tribal communities across India
+              Discover how our programs are making a difference in tribal communities across India
             </p>
           </div>
 
@@ -287,32 +287,35 @@ const Events = () => {
             {pastEvents.map((event, index) => (
               <div 
                 key={index} 
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-primary/20 flex flex-col h-full"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                   <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/90 text-charity-dark backdrop-blur-sm">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/90 text-white backdrop-blur-sm">
                       {event.type}
                     </span>
                   </div>
                 </div>
                 
-                <div className="p-6 flex-1 flex flex-col">
-                  <div className="flex items-center text-xs text-gray-500 mb-3">
-                    <Calendar className="h-3.5 w-3.5 mr-1.5 text-primary" />
-                    <span>{formatDate(event.date)}</span>
-                    <span className="mx-2">•</span>
-                    <MapPin className="h-3.5 w-3.5 mr-1.5 text-primary" />
-                    <span className="truncate">{event.location}</span>
+                <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                  <div className="flex items-center text-xs text-gray-500 mb-3 flex-wrap">
+                    <div className="flex items-center mr-3 mb-1">
+                      <Calendar className="h-3.5 w-3.5 mr-1.5 text-primary flex-shrink-0" />
+                      <span>{formatDate(event.date)}</span>
+                    </div>
+                    <div className="flex items-center mb-1">
+                      <MapPin className="h-3.5 w-3.5 mr-1.5 text-primary flex-shrink-0" />
+                      <span className="truncate">{event.location}</span>
+                    </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-charity-dark mb-3 line-clamp-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-charity-dark mb-3 line-clamp-2 leading-tight">
                     {event.title}
                   </h3>
                   
@@ -320,14 +323,16 @@ const Events = () => {
                     {event.description}
                   </p>
                   
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <div>
-                      <p className="text-xs font-medium text-gray-500 mb-1">Impact</p>
-                      <p className="text-sm font-semibold text-primary">
-                        {event.impact}
-                      </p>
+                  {event.impact && (
+                    <div className="mt-auto pt-4 border-t border-gray-100">
+                      <div>
+                        <p className="text-xs font-medium text-gray-500 mb-1">Impact</p>
+                        <p className="text-sm font-semibold text-primary">
+                          {event.impact}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -345,16 +350,16 @@ const Events = () => {
             Your donations help us organize more events and reach more communities in need. 
             Every contribution makes a difference.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center items-center w-full px-4 sm:px-0">
             <Link 
               to="/donate" 
-              className="inline-block bg-charity-dark text-white hover:bg-charity-dark/90 px-6 py-2 text-sm font-medium rounded-full shadow hover:shadow-md transform hover:scale-105 transition-all duration-300 h-10"
+              className="flex items-center justify-center w-full max-w-[260px] sm:w-auto bg-charity-dark hover:bg-charity-dark/95 text-white font-medium font-sans px-7 py-2.5 sm:py-2.5 rounded-full text-sm sm:text-[15px] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 tracking-wide whitespace-nowrap"
             >
               Donate to Support Events
             </Link>
             <Link 
               to="/events" 
-              className="inline-block border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white px-6 py-2 text-sm font-medium rounded-full transition-all duration-300 h-10"
+              className="flex items-center justify-center w-full max-w-[260px] sm:w-auto bg-white border-2 border-charity-dark text-charity-dark hover:bg-charity-dark hover:text-white font-medium font-sans px-7 py-2.5 sm:py-2.5 rounded-full text-sm sm:text-[15px] hover:shadow-lg hover:scale-[1.02] transition-all duration-200 tracking-wide whitespace-nowrap"
             >
               View Upcoming Events
             </Link>

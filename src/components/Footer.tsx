@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Empowering tribal communities through comprehensive development programs, 
-              healthcare initiatives, and social welfare activities across India.
+              healthcare programs, and social welfare activities across India.
             </p>
             <div className="space-y-2 text-sm text-gray-300">
               <p><strong>Registration:</strong> NGO Tribal Development Trust</p>
@@ -42,11 +42,31 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Programs</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Children's Programmes</li>
-              <li>Medical Camps</li>
-              <li>Women's Empowerment</li>
-              <li>Blanket Distribution</li>
-              <li>Family Counseling</li>
+              <li>
+                <a href="/programs/children" className="hover:text-primary transition-colors">
+                  Children's Programmes
+                </a>
+              </li>
+              <li>
+                <a href="/programs/medical" className="hover:text-primary transition-colors">
+                  Health Camps
+                </a>
+              </li>
+              <li>
+                <a href="/programs/women" className="hover:text-primary transition-colors">
+                  Women's Empowerment
+                </a>
+              </li>
+              <li>
+                <a href="/programs/helping-poor" className="hover:text-primary transition-colors">
+                  Helping the Poor
+                </a>
+              </li>
+              <li>
+                <a href="/programs/counseling" className="hover:text-primary transition-colors">
+                  Family Counseling
+                </a>
+              </li>
             </ul>
           </div>
         </div>

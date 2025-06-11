@@ -33,7 +33,7 @@ const HeroSection = () => {
               
               <p className="text-lg sm:text-xl md:text-2xl mb-10 sm:mb-12 max-w-2xl leading-relaxed text-white/90 font-light">
                 Join us in transforming lives through education, healthcare, and sustainable development 
-                initiatives for tribal communities across India.
+programs and services for tribal communities across India.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto justify-start">
