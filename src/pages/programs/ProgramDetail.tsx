@@ -4,6 +4,31 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const programData = {
+  'helping-poor': {
+    id: 'helping-poor',
+    title: 'Helping the Poor',
+    icon: <Gift className="h-8 w-8 sm:h-12 sm:w-12 text-red-500" />,
+    color: 'red',
+    description: "Providing essential support and resources to uplift underprivileged communities and break the cycle of poverty",
+    impact: "10,000+ lives transformed annually through our poverty alleviation programs",
+    features: [
+      "Food distribution drives and community kitchens",
+      "Emergency financial assistance for basic needs",
+      "Housing support and shelter programs",
+      "Livelihood training and employment assistance",
+      "Educational support for children from low-income families",
+      "Healthcare access and medical assistance"
+    ],
+    stats: [
+      { value: "10,000+", label: "Lives Impacted" },
+      { value: "50+", label: "Communities Served" },
+      { value: "1M+", label: "Meals Served" }
+    ],
+    media: [
+      { type: 'image', url: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3', alt: 'Helping the poor' },
+      { type: 'video', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', title: 'Helping the Poor Video' },
+    ]
+  },
   children: {
     id: 'children',
     title: "Children's Programmes",
@@ -178,6 +203,12 @@ const ProgramDetail = () => {
       text: 'text-teal-700',
       border: 'border-teal-200',
       button: 'bg-teal-600 hover:bg-teal-700',
+    },
+    red: {
+      bg: 'bg-red-50',
+      text: 'text-red-700',
+      border: 'border-red-200',
+      button: 'bg-red-600 hover:bg-red-700',
     },
   };
 
